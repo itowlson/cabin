@@ -316,7 +316,7 @@ export default class ClustersNew extends Component {
         onPress={this.signInAzure.bind(this)}
         renderDetail={() =>
           <Image
-            source={require('images/settings.png')}
+            source={require('images/azure.png')}
             style={{ width: 30, height: 30, marginTop: -6 }}
           />}
       />,
