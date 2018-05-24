@@ -123,5 +123,12 @@
   "gke_clusters_list_header": "Tap to add to Cabin",
   "gke_clusters_empty_title": "No cluster found",
   "gke_clusters_empty_subtitle": "Check permissions on this project and reload",
-  "gke_clusters_empty_action": "Reload"
+  "gke_clusters_empty_action": "Reload",
+
+  "azure_signin": "Add cluster from Microsoft Azure",
+  "azure_signout": "Log out",
+  "azure_clusters_list_header": "Tap to add to Cabin",
+  "azure_clusters_empty_title": "No cluster found",
+  "azure_clusters_empty_subtitle": "Check permissions on this resource and reload",
+  "azure_clusters_empty_action": "Reload"
 }

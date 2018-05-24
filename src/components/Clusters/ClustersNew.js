@@ -146,6 +146,7 @@ export default class ClustersNew extends Component {
           keyboardDismissMode={'interactive'}
           keyboardShouldPersistTaps="always"
         >
+          {this.renderAzure()}
           {this.renderGoogle()}
           <ListHeader title="Manual cluster entry" style={{ marginTop: 20 }} />
           <ListInputItem
@@ -300,6 +301,41 @@ export default class ClustersNew extends Component {
     );
   }
 
+  renderAzure() {
+    if (this.props.cluster) { // || !APP_CONFIG.GOOGLE_CLIENT_ID) {
+      // Don't show Azure cluster creation when editing cluster
+      // Or if env is not setup
+      return false;
+    }
+    return [
+      <ListHeader key="title" title="" style={{ marginTop: -10 }} />,
+      <ListItem
+        key="action"
+        title={intl('azure_signin')}
+        isLast={true}
+        onPress={this.signInAzure.bind(this)}
+        renderDetail={() =>
+          <Image
+            source={require('images/settings.png')}
+            style={{ width: 30, height: 30, marginTop: -6 }}
+          />}
+      />,
+      <View
+        key="border"
+        style={{
+          height: 30,
+          marginTop: 20,
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}
+      >
+        <View style={{ height: 1, flex: 1, backgroundColor: '#BBBBBB' }} />
+        <Text style={{ marginHorizontal: 10, color: Colors.GRAY }}>{'Or'}</Text>
+        <View style={{ height: 1, flex: 1, backgroundColor: '#BBBBBB' }} />
+      </View>,
+    ];
+  }
+
   renderGoogle() {
     if (this.props.cluster || !APP_CONFIG.GOOGLE_CLIENT_ID) {
       // Don't show Google cluster creation when editing cluster
@@ -333,6 +369,16 @@ export default class ClustersNew extends Component {
         <View style={{ height: 1, flex: 1, backgroundColor: '#BBBBBB' }} />
       </View>,
     ];
+  }
+
+  signInAzure() {
+    this.setState({ loading: true });
+    const { navigator } = this.props;
+    const route = {
+      screen: 'cabin.ClustersNewAzure',
+      title: 'Azure Clusters',
+    };
+    Platform.OS === 'ios' ? navigator.showModal(route) : navigator.push(route);
   }
 
   signInGoogle() {

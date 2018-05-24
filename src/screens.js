@@ -18,6 +18,7 @@ import { Navigation } from 'react-native-navigation';
 import ClustersIndex from 'components/Clusters/ClustersIndex';
 import { ClustersIndexNavBarTitle } from 'components/Clusters/ClustersIndex';
 import ClustersNew from 'components/Clusters/ClustersNew';
+import { ClustersNewAzureContainer } from 'components/Clusters/ClustersNewAzure';
 import { ClustersNewGoogleContainer } from 'components/Clusters/ClustersNewGoogle';
 import { ClustersNewGoogleCreationContainer } from 'components/Clusters/ClustersNewGoogleCreation';
 import { ClustersShowContainer } from 'components/Clusters/ClustersShow';
@@ -55,6 +56,7 @@ export function registerScreens() {
   Navigation.registerComponent('cabin.ClustersIndex', () => ClustersIndex);
   Navigation.registerComponent('cabin.ClustersIndex.Title', () => ClustersIndexNavBarTitle);
   Navigation.registerComponent('cabin.ClustersNew', () => ClustersNew);
+  Navigation.registerComponent('cabin.ClustersNewAzure', () => ClustersNewAzureContainer);
   Navigation.registerComponent('cabin.ClustersNewGoogle', () => ClustersNewGoogleContainer);
   Navigation.registerComponent('cabin.ClustersNewGoogleCreation', () => ClustersNewGoogleCreationContainer);
   Navigation.registerComponent('cabin.ClustersShow', () => ClustersShowContainer);
